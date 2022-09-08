@@ -5,11 +5,18 @@ export default class ComponentA extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      lastName: "",
-      email: "",
+      name: "Juan",
+      lastName: "Hernandez",
+      email: "juanh@gmail.com",
       conected: false,
     };
+
+    //bind
+    this.updateState = this.updateState.bind(this);
+  }
+
+  updateState(state) {
+    this.setState({ conected: state });
   }
 
   render() {
@@ -20,6 +27,7 @@ export default class ComponentA extends Component {
           lastName={this.state.lastName}
           email={this.state.email}
           conected={this.state.conected}
+          updateState={this.updateState}
         />
       </div>
     );
